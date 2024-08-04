@@ -1,0 +1,24 @@
+.AppLayout {
+  height: 100dvh;
+  display: flex;
+  flex-direction: row;
+}
+.sidebar {
+  height: 100dvh;
+  width: 50dvh;
+}
+.mapSide {
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+  width: 45dvw;
+  position: relative;
+  flex: 1;
+  right: 0px;
+  text-align: left;
+}
+
+.mapSide h1 {
+  position: relative;
+  top: 50%;
+}

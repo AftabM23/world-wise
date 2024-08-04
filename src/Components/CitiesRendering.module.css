@@ -1,0 +1,52 @@
+.citiesItem {
+  display: flex;
+  background-color: #242a2e;
+  padding: 2px;
+
+  margin: 5px;
+  justify-content: space-between;
+
+  text-align: center;
+  justify-items: center;
+  color: white;
+  border-radius: 3px;
+  align-items: center;
+  height: 1.5rem;
+  width: 15rem;
+  cursor: pointer;
+}
+.citiesItemCity {
+  font-weight: lighter;
+  padding: 5px;
+  font-size: 6px;
+  font-weight: bolder;
+}
+.citiesItemDate {
+  font-size: 4px;
+  padding: 5px;
+  display: flex;
+  justify-content: end;
+}
+
+.citiesItemBtn {
+  background-color: #3b3a3a;
+  border: 0;
+  font-weight: 50;
+  font-size: xx-small;
+  color: white;
+  border-radius: 5px;
+  height: 1rem;
+  width: 1rem;
+  align-items: center;
+}
+.citiesItemBtn:hover {
+  background-color: white;
+  border: 0;
+  font-weight: 50;
+  font-size: xx-small;
+  color: #3b3a3a;
+  border-radius: 5px;
+  height: 1rem;
+  width: 1rem;
+  align-items: center;
+}

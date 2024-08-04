@@ -1,0 +1,11 @@
+.sideBar {
+  height: 100dvh;
+  width: 40dvw;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  flex-direction: column;
+}
+.logoAnchor {
+  height: 3rem;
+}

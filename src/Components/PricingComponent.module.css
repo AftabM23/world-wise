@@ -1,0 +1,12 @@
+.pricingComponent {
+  display: flex;
+  flex-direction: row;
+  padding: 25px;
+}
+
+.pricingComponent img {
+  height: 20rem;
+}
+.pricingComponentItems {
+  padding: 10px;
+}

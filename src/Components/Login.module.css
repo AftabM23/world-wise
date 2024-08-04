@@ -1,0 +1,22 @@
+.login {
+  position: relative;
+  background-color: #44484b;
+  width: 30dvw;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 5px;
+  padding: 5px;
+  left: 35%;
+}
+
+.loginItems {
+  padding: 15px;
+}
+.login label {
+  font-size: 8px;
+}
+.login input {
+  margin-bottom: 5px;
+  font-size: 1.3em;
+  padding: 0.5em;
+}

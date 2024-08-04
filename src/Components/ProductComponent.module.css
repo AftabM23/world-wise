@@ -1,0 +1,12 @@
+.productStyle {
+  background-color: #262f32;
+  height: 100dvh;
+  display: flex;
+  padding: 15px;
+}
+.productStyle img {
+  height: 13rem;
+}
+.productStyleItem {
+  padding: 15px;
+}
