@@ -1,0 +1,16 @@
+.countryList {
+  border-radius: 5px;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(105, 100, 100);
+  width: 6rem;
+  color: rgb(247, 247, 247);
+}
+.countryList p {
+  font-size: 6px;
+  font-weight: bolder;
+  color: rgb(247, 247, 247);
+}

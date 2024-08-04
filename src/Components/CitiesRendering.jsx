@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+
 import styles from "./CitiesRendering.module.css";
 function formatDate(dateString) {
   const date = new Date(dateString);

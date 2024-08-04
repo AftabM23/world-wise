@@ -1,5 +1,5 @@
 import CountryListRendering from "./CountryListRendering";
-
+import styles from "./CountryList.module.css";
 /* eslint-disable react/prop-types */
 function CountryList({ countriesData }) {
   const countriesL = countriesData.reduce((arr, currentItem) => {
@@ -14,7 +14,7 @@ function CountryList({ countriesData }) {
   }, []);
 
   return (
-    <div>
+    <div className={styles.countryList}>
       {countriesL.map((country) => (
         <div key={country.id}>
           <CountryListRendering countries={country} />

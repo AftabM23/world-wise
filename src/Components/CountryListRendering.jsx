@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
+import styles from "./CountryListRendering.module.css";
 function CountryListRendering({ countries }) {
   const { country, emoji } = countries;
   return (
-    <div>
+    <div className={styles.countryList}>
       <span>{emoji}</span>
-      <h3>{country}</h3>
+      <p>{country}</p>
     </div>
   );
 }
