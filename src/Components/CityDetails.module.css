@@ -1,0 +1,4 @@
+.cityDetails {
+  display: flex;
+  flex-direction: column;
+}

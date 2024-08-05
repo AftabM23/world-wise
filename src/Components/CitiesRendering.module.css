@@ -14,7 +14,10 @@
   height: 1.5rem;
   width: 15rem;
   cursor: pointer;
+
+  text-decoration: none;
 }
+
 .citiesItemCity {
   font-weight: lighter;
   padding: 5px;
