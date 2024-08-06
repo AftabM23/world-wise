@@ -1,3 +1,8 @@
 .form {
   border: 2px solid white;
 }
+.btns {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}

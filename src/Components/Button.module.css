@@ -1,3 +1,7 @@
 .add {
   background-color: green;
+  border: 0;
+  height: 2.5rem;
+  width: 3.5rem;
+  border-radius: 4px;
 }

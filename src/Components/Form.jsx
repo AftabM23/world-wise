@@ -12,15 +12,17 @@ function Form() {
         <input type="text"></input>
         <label>Notes about your trip</label>
         <input type="textField"></input>
-        <Button type="add">Add</Button>
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            navigate(-1);
-          }}
-        >
-          &larr;Back
-        </button>
+        <div className={styles.btns}>
+          <Button type="add">Add</Button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(-1);
+            }}
+          >
+            &larr;Back
+          </button>
+        </div>
       </form>
     </div>
   );
