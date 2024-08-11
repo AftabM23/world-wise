@@ -1,8 +1,10 @@
 import CountryListRendering from "./CountryListRendering";
 import styles from "./CountryList.module.css";
+import { useCitiesData } from "../Contexts/CitiesContext";
 /* eslint-disable react/prop-types */
-function CountryList({ countriesData }) {
-  const countriesL = countriesData.reduce((arr, currentItem) => {
+function CountryList() {
+  const { citiesData } = useCitiesData();
+  const countriesL = citiesData.reduce((arr, currentItem) => {
     if (!arr.some((el) => el.country === currentItem.country)) {
       return [
         ...arr,

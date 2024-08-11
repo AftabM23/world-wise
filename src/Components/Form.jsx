@@ -4,8 +4,8 @@ import styles from "./Form.module.css";
 function Form() {
   const navigate = useNavigate();
   return (
-    <div>
-      <form className={styles.form}>
+    <div className={styles.form}>
+      <form>
         <label>City name</label>
         <input type="text"></input>
         <label>When did you go?</label>

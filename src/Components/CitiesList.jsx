@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
+import { useCitiesData } from "../Contexts/CitiesContext";
 import CitiesRendering from "./CitiesRendering";
 import Loading from "./Loading";
 
-function CitiesList({ isLoading, citiesData }) {
+function CitiesList() {
+  const { isLoading, citiesData } = useCitiesData();
   return (
     <div>
       <div>
