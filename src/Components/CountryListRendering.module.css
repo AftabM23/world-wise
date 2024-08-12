@@ -8,6 +8,7 @@
   background-color: #242a2e;
   width: 6rem;
   color: rgb(247, 247, 247);
+  border-left: 3px solid gold;
 }
 .countryList p {
   font-size: 6px;

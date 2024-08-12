@@ -1,4 +1,28 @@
 .cityDetails {
   display: flex;
   flex-direction: column;
+  background-color: #2d3439;
+  width: 80%;
+  height: 50%;
+  padding: 10px;
+  border-radius: 5px;
+  gap: 25px;
+}
+
+.cityDetails a {
+  color: rgb(187, 161, 17);
+}
+.cityDetails span {
+  display: flex;
+  flex-direction: column;
+}
+
+.cityContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cityDetails p {
+  font-size: smaller;
 }

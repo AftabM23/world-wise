@@ -1,8 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import BackButton from "./BackButton";
 import Button from "./Button";
 import styles from "./Form.module.css";
 function Form() {
-  const navigate = useNavigate();
   return (
     <div className={styles.form}>
       <form>
@@ -14,14 +13,7 @@ function Form() {
         <input type="textField"></input>
         <div className={styles.btns}>
           <Button type="add">Add</Button>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              navigate(-1);
-            }}
-          >
-            &larr;Back
-          </button>
+          <BackButton />
         </div>
       </form>
     </div>

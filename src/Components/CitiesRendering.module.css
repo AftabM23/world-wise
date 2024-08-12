@@ -2,7 +2,7 @@
   display: flex;
   background-color: #242a2e;
   padding: 2px;
-
+  border-left: 2px solid green;
   margin: 5px;
   justify-content: space-between;
 
@@ -52,4 +52,8 @@
   height: 1rem;
   width: 1rem;
   align-items: center;
+}
+
+.citiesItemActive {
+  border: 1px solid green;
 }

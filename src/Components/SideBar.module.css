@@ -5,6 +5,7 @@
   align-items: center;
   padding: 5px;
   flex-direction: column;
+  background-color: #262f32;
 }
 .logoAnchor {
   height: 3rem;
