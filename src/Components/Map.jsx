@@ -1,39 +1,33 @@
 /* eslint-disable no-unused-vars */
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import styles from "./Map.module.css";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import { useEffect, useState } from "react";
 
 import { useCitiesData } from "../Contexts/CitiesContext";
 
 function Map() {
   // eslint-disable-next-line no-unused-vars
-  const [searchParams, setSearchParams] = useSearchParams();
-  const lat = searchParams.get("lat");
-  const lng = searchParams.get("lng");
+  const [searchParams] = useSearchParams();
+  const mapLat = searchParams.get("lat");
+  const mapLng = searchParams.get("lng");
   const navigate = useNavigate();
   const [mapPoints, setMapPoints] = useState([25, 25]);
-
+  const { citiesData } = useCitiesData();
   useEffect(
     function () {
-      setMapPoints([lat, lng]);
-      console.log(mapPoints);
+      if (mapLat && mapLng) setMapPoints([mapLat, mapLng]);
     },
-    [lat, lng]
+    [mapLat, mapLng]
   );
-  const { citiesData } = useCitiesData();
+
   return (
     <div className={styles.map}>
-      {/* <h1>{lat}</h1>
-      <h1>{lng}</h1>
-
-      <button onClick={() => setSearchParams({ lat: 23, lng: 25 })}>
-        Set Position
-      </button> */}
       <div className={styles.mapContainer}>
         <MapContainer
+          // center={[mapLat, mapLng]}
           center={mapPoints}
-          zoom={mapPoints ? "5" : "2"}
+          zoom={6}
           scrollWheelZoom={true}
           className={styles.map}
         >
@@ -46,22 +40,22 @@ function Map() {
               key={city.id}
               position={[city.position.lat, city.position.lng]}
             >
-              {/* <Marker
-            position={
-              mapPoints[0] && mapPoints[1]
-                ? [mapPoints[0], mapPoints[1]]
-                : [25, 25]
-            }
-          > */}
               <Popup>{city.cityName}</Popup>
             </Marker>
           ))}
+          <ChangeCenter position={mapPoints} />
         </MapContainer>
       </div>
 
       <div className={styles.jumpToForm} onClick={() => navigate("form")}></div>
     </div>
   );
+}
+// eslint-disable-next-line react/prop-types
+function ChangeCenter({ position }) {
+  const map = useMap();
+  map.setView(position);
+  return null;
 }
 
 export default Map;
