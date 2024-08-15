@@ -1,7 +1,14 @@
 /* eslint-disable no-unused-vars */
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import styles from "./Map.module.css";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  useMap,
+  useMapEvents,
+} from "react-leaflet";
 import { useEffect, useState } from "react";
 
 import { useCitiesData } from "../Contexts/CitiesContext";
@@ -44,6 +51,7 @@ function Map() {
             </Marker>
           ))}
           <ChangeCenter position={mapPoints} />
+          <DeteckClick />
         </MapContainer>
       </div>
 
@@ -56,6 +64,11 @@ function ChangeCenter({ position }) {
   const map = useMap();
   map.setView(position);
   return null;
+}
+
+function DeteckClick() {
+  const navigate = useNavigate();
+  useMapEvents({ click: (e) => navigate("form") });
 }
 
 export default Map;
