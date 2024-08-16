@@ -7,11 +7,19 @@
   cursor: pointer;
 }
 .getPosition {
-  background-color: green;
-  z-index: 100;
+  background-color: rgb(69, 165, 69);
+
   position: absolute; /* Position it within the .map */
-  top: 10px; /* Adjust as needed */
-  right: 10px; /* Adjust as needed */
-  padding: 10px;
+
+  left: 50%;
+  z-index: 1000;
   cursor: pointer;
+  top: 80%;
+  border: 0;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  transform: translateX(-50%);
 }

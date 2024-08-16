@@ -1,9 +1,10 @@
 import { useState } from "react";
 
-export function useGeolocation() {
+export default function useGeolocation() {
   const [isLoading, setIsLoading] = useState(false);
-  const [position, setPosition] = useState({});
+  // const [position, setPosition] = useState({});
   const [error, setError] = useState(null);
+  const [liveGeoLocation, setLiveGeoLocation] = useState(null);
 
   function getPosition() {
     if (!navigator.geolocation)
@@ -12,7 +13,7 @@ export function useGeolocation() {
     setIsLoading(true);
     navigator.geolocation.getCurrentPosition(
       (pos) => {
-        setPosition({
+        setLiveGeoLocation({
           lat: pos.coords.latitude,
           lng: pos.coords.longitude,
         });
@@ -25,5 +26,5 @@ export function useGeolocation() {
     );
   }
 
-  return { isLoading, position, error, getPosition };
+  return { isLoading, liveGeoLocation, error, getPosition };
 }
