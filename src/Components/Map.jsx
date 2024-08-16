@@ -12,6 +12,7 @@ import {
 import { useEffect, useState } from "react";
 
 import { useCitiesData } from "../Contexts/CitiesContext";
+import Button from "./Button";
 
 function Map() {
   // eslint-disable-next-line no-unused-vars
@@ -20,6 +21,7 @@ function Map() {
   const mapLng = searchParams.get("lng");
   const navigate = useNavigate();
   const [mapPoints, setMapPoints] = useState([25, 25]);
+  const [mapZoom, setMapZoom] = useState(6);
   const { citiesData } = useCitiesData();
   useEffect(
     function () {
@@ -29,12 +31,11 @@ function Map() {
   );
 
   return (
-    <div className={styles.map}>
-      <div className={styles.mapContainer}>
+    <div className={styles.mapContainer}>
+      <div className={styles.map}>
         <MapContainer
-          // center={[mapLat, mapLng]}
           center={mapPoints}
-          zoom={6}
+          zoom={mapZoom}
           scrollWheelZoom={true}
           className={styles.map}
         >
@@ -50,8 +51,9 @@ function Map() {
               <Popup>{city.cityName}</Popup>
             </Marker>
           ))}
-          <ChangeCenter position={mapPoints} />
-          <DeteckClick />
+          <ChangeCenter position={mapPoints} setMapZoom={setMapZoom} />
+          <DetectClick />
+          <Button type="getPosition">Get position</Button>
         </MapContainer>
       </div>
 
@@ -60,15 +62,21 @@ function Map() {
   );
 }
 // eslint-disable-next-line react/prop-types
-function ChangeCenter({ position }) {
+function ChangeCenter({ position, setMapZoom }) {
   const map = useMap();
   map.setView(position);
+  setMapZoom(8);
   return null;
 }
 
-function DeteckClick() {
+function DetectClick() {
   const navigate = useNavigate();
-  useMapEvents({ click: (e) => navigate("form") });
+  useMapEvents({
+    click: (e) => {
+      console.log(e);
+      navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng} `);
+    },
+  });
 }
 
 export default Map;

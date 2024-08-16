@@ -6,3 +6,12 @@
   border-radius: 4px;
   cursor: pointer;
 }
+.getPosition {
+  background-color: green;
+  z-index: 100;
+  position: absolute; /* Position it within the .map */
+  top: 10px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+  padding: 10px;
+  cursor: pointer;
+}
