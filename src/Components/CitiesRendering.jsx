@@ -25,7 +25,12 @@ function formatDate(dateString) {
 function CitiesRendering({ city }) {
   const { cityName, emoji, date, id } = city;
   const { lat, lng } = city.position;
-  const { currentCity } = useCitiesData();
+  const { currentCity, deleteCity } = useCitiesData();
+
+  function handleDelete(e) {
+    e.preventDefault();
+    deleteCity(id);
+  }
 
   return (
     <li style={{ listStyleType: "none" }}>
@@ -39,7 +44,12 @@ function CitiesRendering({ city }) {
 
         <h4 className={styles.citiesItemCity}>{cityName}</h4>
         <time className={styles.citiesItemDate}>{formatDate(date)}</time>
-        <button className={styles.citiesItemBtn}>&times;</button>
+        <button
+          className={styles.citiesItemBtn}
+          onClick={(e) => handleDelete(e)}
+        >
+          &times;
+        </button>
       </Link>
     </li>
   );

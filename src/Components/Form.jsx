@@ -22,21 +22,9 @@ function Form() {
   const [notes, setNotes] = useState("");
   const [geoLocationError, setGeoLocationError] = useState("");
   const [date, setDate] = useState();
-  const randomId = Math.floor(10000000 + Math.random() * 90000000);
-  const { addNewCity } = useCitiesData();
-  function getCurrentDateTimeString() {
-    const now = new Date();
+  const navigate = useNavigate();
+  const { addNewCity, isLoading } = useCitiesData();
 
-    const yyyy = now.getFullYear();
-    const mm = String(now.getMonth() + 1).padStart(2, "0");
-    const dd = String(now.getDate()).padStart(2, "0");
-    const hh = String(now.getHours()).padStart(2, "0");
-    const min = String(now.getMinutes()).padStart(2, "0");
-    const sec = String(now.getSeconds()).padStart(2, "0");
-    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
-    return `${yyyy}-${mm}-${dd} ${hh}:${min}:${sec} (${timeZone})`;
-  }
   useEffect(
     function () {
       async function fetchCityData() {
@@ -82,9 +70,10 @@ function Form() {
     };
 
     addNewCity(newCity);
+    navigate("/app/cities");
   }
   return (
-    <div className={styles.form}>
+    <div className={`styles.form ${isLoading ? "loading" : ""}`}>
       {isLoadingGeocoding ? (
         <Loading />
       ) : geoLocationError ? (
@@ -110,11 +99,10 @@ function Form() {
             onChange={(e) => setNotes(e.target.value)}
           ></input>
           <div className={styles.btns}>
-            <Link to="/app/cities">
-              <Button type="add" onClick={handleAdd}>
-                Add
-              </Button>
-            </Link>
+            <Button type="add" onClick={handleAdd}>
+              Add
+            </Button>
+
             <BackButton />
           </div>
         </form>

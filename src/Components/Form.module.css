@@ -15,3 +15,7 @@
 .form input {
   font-size: 1rem;
 }
+
+.loading {
+  opacity: 0.2;
+}
