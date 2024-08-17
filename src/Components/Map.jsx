@@ -15,12 +15,11 @@ import useGeolocation from "../hooks/useGeolocation";
 import { useCitiesData } from "../Contexts/CitiesContext";
 import Button from "./Button";
 import Loading from "./Loading";
+import useURLposition from "../hooks/useURLposition";
 function Map() {
   // eslint-disable-next-line no-unused-vars
-  const [searchParams] = useSearchParams();
-  const mapLat = searchParams.get("lat");
-  const mapLng = searchParams.get("lng");
-  const navigate = useNavigate();
+  const [mapLat, mapLng] = useURLposition();
+
   const [mapPoints, setMapPoints] = useState([25, 25]);
   const [mapZoom, setMapZoom] = useState(4);
   const { citiesData } = useCitiesData();
@@ -40,6 +39,7 @@ function Map() {
     function () {
       if (liveGeoLocation)
         setMapPoints([liveGeoLocation.lat, liveGeoLocation.lng]);
+      setMapZoom(8);
     },
     [liveGeoLocation]
   );

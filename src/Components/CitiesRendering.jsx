@@ -10,6 +10,18 @@ function formatDate(dateString) {
     day: "numeric",
   });
 }
+
+// function countryCodeToFlagEmoji(countryCode) {
+//   if (countryCode.length !== 2) {
+//     throw new Error("Invalid flag emoji length. It must be two characters.");
+//   }
+
+//   return countryCode
+//     .split("")
+//     .map((char) => String.fromCodePoint(char.codePointAt(0) - 127397))
+//     .join("");
+// }
+
 function CitiesRendering({ city }) {
   const { cityName, emoji, date, id } = city;
   const { lat, lng } = city.position;
@@ -24,6 +36,7 @@ function CitiesRendering({ city }) {
         }`}
       >
         <span>{emoji}</span>
+
         <h4 className={styles.citiesItemCity}>{cityName}</h4>
         <time className={styles.citiesItemDate}>{formatDate(date)}</time>
         <button className={styles.citiesItemBtn}>&times;</button>
