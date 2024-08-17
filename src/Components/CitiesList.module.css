@@ -1,0 +1,6 @@
+.citiesList {
+  height: 80%;
+  scrollbar-width: 0px;
+  overflow: auto;
+  scrollbar-width: none; /* For Firefox */
+}

@@ -6,14 +6,24 @@ import useURLposition from "../hooks/useURLposition";
 import Message from "./Message";
 import { useEffect, useState } from "react";
 import Loading from "./Loading";
+import { useCitiesData } from "../Contexts/CitiesContext";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 function Form() {
   const [lat, lng] = useURLposition();
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
   const [cityName, setCityName] = useState("");
-  const [countryName, setCountryName] = useState("");
+  const [country, setCountry] = useState("");
+  const [emoji, setEmoji] = useState("");
+  const [notes, setNotes] = useState("");
   const [geoLocationError, setGeoLocationError] = useState("");
+  const [date, setDate] = useState();
+  const randomId = Math.floor(10000000 + Math.random() * 90000000);
+  const { addNewCity } = useCitiesData();
   function getCurrentDateTimeString() {
     const now = new Date();
 
@@ -43,7 +53,8 @@ function Form() {
             );
           console.log(data);
           setCityName(data.city || data.locality);
-          setCountryName(data.countryCode);
+          setEmoji(data.countryCode);
+          setCountry(data.countryName);
         } catch (err) {
           setGeoLocationError(err.message);
           console.log(geoLocationError);
@@ -55,8 +66,23 @@ function Form() {
     },
     [lat, lng]
   );
+  function handleAdd() {
+    if (!cityName || !date) return;
 
-  if (geoLocationError) <Message message={geoLocationError} />;
+    const newCity = {
+      cityName,
+      country,
+      emoji,
+      date,
+      notes,
+      position: {
+        lat,
+        lng,
+      },
+    };
+
+    addNewCity(newCity);
+  }
   return (
     <div className={styles.form}>
       {isLoadingGeocoding ? (
@@ -66,14 +92,29 @@ function Form() {
       ) : (
         <form>
           <label>City name</label>
-          <input type="text" value={`${cityName} ${countryName}`}></input>
+          <input type="text" value={`${cityName} ${emoji}`}></input>
 
-          <label>When did you go?</label>
-          <input type="text" value={getCurrentDateTimeString()}></input>
+          <label htmlFor="date">When did you go?</label>
+
+          <DatePicker
+            id="date"
+            onChange={(date) => setDate(date)}
+            selected={date}
+            value={date}
+            format="dd / mm / yyyy"
+          />
           <label>Notes about your trip</label>
-          <input type="textField"></input>
+          <input
+            type="textField"
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
+          ></input>
           <div className={styles.btns}>
-            <Button type="add">Add</Button>
+            <Link to="/app/cities">
+              <Button type="add" onClick={handleAdd}>
+                Add
+              </Button>
+            </Link>
             <BackButton />
           </div>
         </form>

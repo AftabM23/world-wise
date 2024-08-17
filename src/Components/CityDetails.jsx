@@ -13,11 +13,12 @@ function formatDate(dateString) {
     day: "numeric",
   });
 }
+
 function CityDetails() {
   const { id } = useParams();
   const { getCity, currentCity, isLoading } = useCitiesData();
 
-  useEffect(
+      useEffect(
     function () {
       getCity(id);
     },

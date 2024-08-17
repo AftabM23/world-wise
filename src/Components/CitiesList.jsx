@@ -2,11 +2,12 @@
 import { useCitiesData } from "../Contexts/CitiesContext";
 import CitiesRendering from "./CitiesRendering";
 import Loading from "./Loading";
+import styles from "./CitiesList.module.css";
 
 function CitiesList() {
   const { isLoading, citiesData } = useCitiesData();
   return (
-    <div>
+    <div className={styles.citiesList}>
       <div>
         {isLoading ? (
           <Loading />

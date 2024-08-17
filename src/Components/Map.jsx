@@ -43,10 +43,7 @@ function Map() {
     },
     [liveGeoLocation]
   );
-  // function handleGetPositionClick() {
-  //   getPosition();
-  //   setMapPoints([liveGeoLocation.lat, liveGeoLocation.lng]);
-  // }
+
   return (
     <div className={styles.mapContainer}>
       {!liveGeoLocation && (
@@ -65,18 +62,21 @@ function Map() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {citiesData.map((city) => (
-          <Marker
-            key={city.id}
-            position={[city.position.lat, city.position.lng]}
-          >
-            <Popup>{city.cityName}</Popup>
-          </Marker>
-        ))}
+        {citiesData.map((city) => {
+          const position =
+            city.position?.lat && city.position?.lng
+              ? [city.position.lat, city.position.lng]
+              : mapPoints;
+
+          return (
+            <Marker key={city.id} position={position}>
+              <Popup>{city.cityName}</Popup>
+            </Marker>
+          );
+        })}
         <ChangeCenter position={mapPoints} setMapZoom={setMapZoom} />
         <DetectClick />
       </MapContainer>
-      {/* <div className={styles.jumpToForm} onClick={() => navigate("form")}></div> */}
     </div>
   );
 }
