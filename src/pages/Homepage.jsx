@@ -19,7 +19,7 @@ function Homepage() {
             you have wondered the world
           </p>
         </div>
-        <Link to="/app" className={styles.cta}>
+        <Link to="/login" className={styles.cta}>
           <span className={styles.trackingButton}> Start Tracking Now</span>
         </Link>
         {/* <AppNav /> */}

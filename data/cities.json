@@ -35,6 +35,42 @@
         "lng": 13.376933665713324
       },
       "id": "98443197"
+    },
+    {
+      "id": "1aa0",
+      "cityName": "Qasr al Farafirah",
+      "country": "Egypt",
+      "emoji": "EG",
+      "date": "2024-08-28T04:00:00.000Z",
+      "notes": "",
+      "position": {
+        "lat": "27.05414919403258",
+        "lng": "25.30204195079977"
+      }
+    },
+    {
+      "id": "1cca",
+      "cityName": "Al Jawf",
+      "country": "Libya",
+      "emoji": "LY",
+      "date": "2024-08-02T04:00:00.000Z",
+      "notes": "",
+      "position": {
+        "lat": "25.874127365500364",
+        "lng": "21.95128881956171"
+      }
+    },
+    {
+      "id": "6d4a",
+      "cityName": "Murzuk",
+      "country": "Libya",
+      "emoji": "LY",
+      "date": "2024-08-30T04:00:00.000Z",
+      "notes": "",
+      "position": {
+        "lat": "23.887712064580185",
+        "lng": "17.904875001802324"
+      }
     }
   ]
 }
