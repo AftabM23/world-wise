@@ -1,14 +1,9 @@
-.nav {
-}
-/* 
-:global(a) {
-  background-color: white;
-} */
-.nav :global(.active) {
-  background-color: pink;
-}
 .navLinks a {
   color: wheat;
   padding: 3px;
   text-decoration: none;
+}
+
+.navLinks a.active {
+  text-decoration: underline;
 }

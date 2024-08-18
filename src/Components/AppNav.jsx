@@ -1,12 +1,22 @@
 import styles from "./AppNav.module.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 function AppNav() {
   return (
-    <div className={styles.nav}>
-      <div className={styles.navLinks}>
-        <Link to="cities">Cities</Link>
-        <Link to="countries">Countries</Link>
-      </div>
+    <div className={styles.navLinks}>
+      <nav>
+        <NavLink
+          to="cities"
+          className={({ isActive }) => (isActive ? styles.active : "")}
+        >
+          Cities
+        </NavLink>
+        <NavLink
+          to="countries"
+          className={({ isActive }) => (isActive ? styles.active : "")}
+        >
+          Countries
+        </NavLink>
+      </nav>
     </div>
   );
 }
