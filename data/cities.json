@@ -47,6 +47,54 @@
         "lat": "24.85585498980139",
         "lng": "4.816405177116395"
       }
+    },
+    {
+      "id": "5bac",
+      "cityName": "Dalqu",
+      "country": "Sudan (the)",
+      "emoji": "SD",
+      "date": "2024-08-07T04:00:00.000Z",
+      "notes": "helo",
+      "position": {
+        "lat": "20.478817036031742",
+        "lng": "25.750516822820728"
+      }
+    },
+    {
+      "id": "cf69",
+      "cityName": "Foggaret Ezzaou",
+      "country": "Algeria",
+      "emoji": "DZ",
+      "date": "2024-08-01T04:00:00.000Z",
+      "notes": "",
+      "position": {
+        "lat": "28.69633190776592",
+        "lng": "4.483059264706536"
+      }
+    },
+    {
+      "id": "2e87",
+      "cityName": "Toronto",
+      "country": "Canada",
+      "emoji": "CA",
+      "date": "2024-08-21T04:00:00.000Z",
+      "notes": "",
+      "position": {
+        "lat": "43.645210507995166",
+        "lng": "-79.41041609422727"
+      }
+    },
+    {
+      "id": "2a1a",
+      "cityName": "Al Jawf",
+      "country": "Libya",
+      "emoji": "LY",
+      "date": "2024-08-02T04:00:00.000Z",
+      "notes": "",
+      "position": {
+        "lat": "25.649092588722457",
+        "lng": "24.08362572826922"
+      }
     }
   ]
 }
