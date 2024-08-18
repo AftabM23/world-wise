@@ -35,18 +35,6 @@
         "lng": 13.376933665713324
       },
       "id": "98443197"
-    },
-    {
-      "id": "6b5d",
-      "cityName": "Buffalo",
-      "country": "United States of America (the)",
-      "emoji": "US",
-      "date": "2024-08-01T04:00:00.000Z",
-      "notes": "",
-      "position": {
-        "lat": "42.879851233155755",
-        "lng": "-78.81881478005444"
-      }
     }
   ]
 }
