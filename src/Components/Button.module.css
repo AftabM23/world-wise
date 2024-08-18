@@ -23,3 +23,10 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   transform: translateX(-50%);
 }
+
+.logout {
+  height: 70%;
+  width: fit-content;
+
+  font-size: smaller;
+}

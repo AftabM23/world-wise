@@ -1,0 +1,28 @@
+.card {
+  background-color: #262f32;
+  z-index: 1000;
+  height: 2rem;
+  width: 7rem;
+  position: absolute;
+
+  cursor: pointer;
+  right: 2%;
+  border: 0;
+  top: 5%;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  transform: translateX(-10%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.card img {
+  padding: 0;
+  height: 1rem;
+  border-radius: 5px;
+}

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./Map.module.css";
 import {
   MapContainer,
@@ -16,6 +16,7 @@ import { useCitiesData } from "../Contexts/CitiesContext";
 import Button from "./Button";
 import Loading from "./Loading";
 import useURLposition from "../hooks/useURLposition";
+import ProfileCard from "./ProfileCard";
 function Map() {
   // eslint-disable-next-line no-unused-vars
   const [mapLat, mapLng] = useURLposition();
@@ -46,6 +47,7 @@ function Map() {
 
   return (
     <div className={styles.mapContainer}>
+      <ProfileCard />
       {!liveGeoLocation && (
         <Button type="getPosition" onClick={getPosition}>
           {geolocationIsLoading ? <Loading /> : "Use current Location"}

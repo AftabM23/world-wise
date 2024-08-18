@@ -67,7 +67,7 @@ function CitiesContextProvider({ children }) {
         console.log(data);
       } catch (error) {
         dispatch({ type: "rejected", payload: error });
-        console.errorMsg(errorMsg);
+        console.log(errorMsg);
       }
     };
     fetchCities();
@@ -87,7 +87,7 @@ function CitiesContextProvider({ children }) {
       console.log(currentCity);
     } catch (error) {
       dispatch({ type: "rejected", payload: error });
-      console.errorMsg(errorMsg);
+      console.log(errorMsg);
     }
   }
 
@@ -108,7 +108,7 @@ function CitiesContextProvider({ children }) {
       console.log(citiesData);
     } catch (error) {
       dispatch({ type: "rejected", payload: error });
-      console.errorMsg(errorMsg);
+      console.log(error);
     }
   }
 
@@ -122,7 +122,7 @@ function CitiesContextProvider({ children }) {
       // setCitiesData((cities) => cities.filter((city) => city.id != id));
     } catch (error) {
       dispatch({ type: "rejected", payload: error });
-      console.errorMsg(errorMsg);
+      console.log(error);
     }
   }
 

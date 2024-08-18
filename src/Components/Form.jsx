@@ -84,7 +84,7 @@ function Form() {
           <input type="text" value={`${cityName} ${emoji}`}></input>
 
           <label htmlFor="date">When did you go?</label>
- 
+
           <DatePicker
             id="date"
             onChange={(date) => setDate(date)}
