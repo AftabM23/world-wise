@@ -1,81 +1,125 @@
 /* eslint-disable react/prop-types */
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 const CitiesContext = createContext(null);
+
+const initialState = {
+  citiesData: [],
+  isLoading: false,
+  currentCity: [],
+  errorMsg: "",
+};
+function reducer(state, action) {
+  switch (action.type) {
+    case "loading":
+      return { ...state, isLoading: true };
+    case "cities/loaded":
+      return { ...state, isLoading: false, citiesData: action.payload };
+
+    case "city/searched":
+      return { ...state, isLoading: false, currentCity: action.payload };
+    case "city/added":
+      return {
+        ...state,
+        isLoading: false,
+        citiesData: [...state.citiesData, action.payload],
+      };
+
+    case "city/deleted":
+      return {
+        ...state,
+        isLoading: false,
+        citiesData: state.citiesData.filter(
+          (city) => city.id !== action.payload
+        ),
+      };
+
+    case "rejected":
+      return {
+        ...state,
+        isLoading: false,
+        errorMsg: action.payload,
+      };
+
+    default:
+      return state;
+  }
+}
 function CitiesContextProvider({ children }) {
-  const [citiesData, setCitiesData] = useState([]);
-  const [isLoading, setIsLoading] = useState();
-  const [currentCity, setcurrentCity] = useState([]);
+  const [{ citiesData, isLoading, currentCity, errorMsg }, dispatch] =
+    useReducer(reducer, initialState);
+
+  // const [citiesData, setCitiesData] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [currentCity, setcurrentCity] = useState([]);
   useEffect(function () {
     const fetchCities = async () => {
+      dispatch({ type: "loading" });
       try {
-        setIsLoading(true);
         const response = await fetch("http://localhost:9000/cities");
         if (!response.ok) {
           throw new Error("Response was not OK");
         }
         const data = await response.json();
-        setCitiesData(data);
-        setIsLoading(false);
+        dispatch({ type: "cities/loaded", payload: data });
+
         console.log(data);
       } catch (error) {
-        setIsLoading(false);
-        console.error(error);
+        dispatch({ type: "rejected", payload: error });
+        console.errorMsg(errorMsg);
       }
     };
     fetchCities();
   }, []);
 
   async function getCity(id) {
+    dispatch({ type: "loading" });
     try {
-      setIsLoading(true);
       const response = await fetch(`http://localhost:9000/cities/${id}`);
       if (!response.ok) {
         throw new Error("Response was not OK");
       }
       const data = await response.json();
-      setcurrentCity(data);
-      setIsLoading(false);
+      dispatch({ type: "city/searched", payload: data });
 
       console.log(currentCity);
     } catch (error) {
-      setIsLoading(false);
-      console.error(error);
+      dispatch({ type: "rejected", payload: error });
+      console.errorMsg(errorMsg);
     }
   }
 
   async function addNewCity(newCity) {
+    dispatch({ type: "loading" });
     try {
-      setIsLoading(true);
       const response = await fetch(`http://localhost:9000/cities/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newCity),
       });
       if (!response.ok) {
-        throw new Error("error while ADDING");
+        throw new Error("errorMsg while ADDING");
       }
       const data = await response.json();
-      setCitiesData((cities) => [...cities, data]);
-      setIsLoading(false);
+      dispatch({ type: "city/added", payload: data });
+
       console.log(citiesData);
     } catch (error) {
-      setIsLoading(false);
-      console.error(error);
+      dispatch({ type: "rejected", payload: error });
+      console.errorMsg(errorMsg);
     }
   }
 
   async function deleteCity(id) {
+    dispatch({ type: "loading" });
     try {
-      setIsLoading(true);
       await fetch(`http://localhost:9000/cities/${id}`, {
         method: "DELETE",
       });
-
-      setCitiesData((cities) => cities.filter((city) => city.id != id));
+      dispatch({ type: "city/deleted", payload: id });
+      // setCitiesData((cities) => cities.filter((city) => city.id != id));
     } catch (error) {
-      alert("error while deleting");
-    } finally {
-      setIsLoading(false);
+      dispatch({ type: "rejected", payload: error });
+      console.errorMsg(errorMsg);
     }
   }
 
