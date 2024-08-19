@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
-import { useParams, useSearchParams } from "react-router-dom";
-import styles from "./CityDetails.module.css";
+import { useParams } from "react-router-dom";
 import { useCitiesData } from "../Contexts/CitiesContext";
 import { useEffect } from "react";
+import styles from "./CityDetails.module.css";
 import BackButton from "./BackButton";
 
 function formatDate(dateString) {
@@ -18,7 +18,7 @@ function CityDetails() {
   const { id } = useParams();
   const { getCity, currentCity, isLoading } = useCitiesData();
 
-      useEffect(
+  useEffect(
     function () {
       getCity(id);
     },
@@ -42,7 +42,7 @@ function CityDetails() {
               </span>
             </span>
             <span>
-              <p>When did you visit :</p> <h3>{formatDate(date)}</h3>
+              <p>When did you visit {cityName}</p> <h3>{formatDate(date)}</h3>
             </span>
             <span>
               <p> Learn More on Wiki</p>

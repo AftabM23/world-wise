@@ -23,7 +23,7 @@ function ProfileCard() {
       <img src={dp}></img>
       <p>{user}</p>
       <Button type="logout" onClick={handleLogout}>
-        logout
+        Logout
       </Button>
     </div>
   );

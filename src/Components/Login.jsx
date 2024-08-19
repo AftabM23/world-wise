@@ -22,10 +22,7 @@ function Login() {
   );
   return (
     <div>
-      <form
-        className={style.login}
-        // onSubmit={(e) => handleSubmit(e, password, email)}
-      >
+      <form className={style.login}>
         <label>Email address</label>
         <input
           type="email"

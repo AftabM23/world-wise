@@ -22,9 +22,7 @@ function PagNav() {
           <span>
             <NavLink to="/product">Product</NavLink>
           </span>
-          {/* <span>
-            <NavLink to="/*">ProductNotFound</NavLink>
-          </span> */}
+
           <span>
             <NavLink to="/login">Login</NavLink>
           </span>

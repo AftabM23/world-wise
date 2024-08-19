@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import styles from "./CitiesRendering.module.css";
 import { useCitiesData } from "../Contexts/CitiesContext";
+
 function formatDate(dateString) {
   const date = new Date(dateString);
   return date.toLocaleDateString("en-US", {

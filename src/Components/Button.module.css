@@ -1,16 +1,16 @@
 .add {
-  background-color: green;
+  background-color: rgb(69, 165, 69);
   border: 0;
   height: 2.5rem;
   width: 3.5rem;
   border-radius: 4px;
   cursor: pointer;
+  color: rgb(236, 231, 231);
 }
 .getPosition {
   background-color: rgb(69, 165, 69);
-
-  position: absolute; /* Position it within the .map */
-
+  position: absolute;
+  color: rgb(236, 231, 231);
   left: 50%;
   z-index: 1000;
   cursor: pointer;
@@ -25,8 +25,13 @@
 }
 
 .logout {
-  height: 70%;
+  height: fit-content;
   width: fit-content;
-
+  background-color: transparent;
   font-size: smaller;
+  border: 1px solid wheat;
+  color: wheat;
+  border-radius: 3px;
+  padding: 2px;
+  cursor: pointer;
 }

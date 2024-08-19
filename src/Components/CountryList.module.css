@@ -1,8 +1,10 @@
 .countryList {
-  margin: 1rem;
+  position: relative;
+  left: 15%;
+  margin: 0.5rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 5px;
   overflow: auto;
   scrollbar-width: none;
   height: 60%;

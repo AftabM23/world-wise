@@ -2,14 +2,13 @@
   background-color: #262f32;
   z-index: 1000;
   height: 2rem;
-  width: 7rem;
+  width: fit-content;
   position: absolute;
-
   cursor: pointer;
   right: 2%;
   border: 0;
   top: 5%;
-  padding: 5px;
+  padding: 7px;
   border-radius: 5px;
   font-size: 1rem;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -19,6 +18,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  gap: 7px;
 }
 
 .card img {
