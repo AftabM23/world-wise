@@ -26,14 +26,15 @@ const CitiesList = lazy(() => import("./Components/CitiesList"));
 const CountryList = lazy(() => import("./Components/CountryList"));
 const CityDetails = lazy(() => import("./Components/CityDetails"));
 const Form = lazy(() => import("./Components//Form"));
-const Loading = lazy(() => import("./Components/Loading"));
+// const Loading = lazy(() => import("./Components/Loading"));
+const Loaderpage = lazy(() => import("./pages/Loaderpage"));
 
 function App() {
   return (
     <CitiesContextProvider>
       <AuthProvider>
         <BrowserRouter>
-          <Suspense fallback={<Loading />}>
+          <Suspense fallback={<Loaderpage />}>
             <Routes>
               <Route path="/" element={<Homepage />} />
               <Route path="pricing" element={<Pricing />} />
