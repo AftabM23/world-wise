@@ -143,6 +143,30 @@
         "lat": "22.259325352404293",
         "lng": "7.610228471010566"
       }
+    },
+    {
+      "id": "0100",
+      "cityName": "Ajdabiya",
+      "country": "Libya",
+      "emoji": "LY",
+      "date": "2024-07-31T04:00:00.000Z",
+      "notes": "rr",
+      "position": {
+        "lat": "27.900385340246928",
+        "lng": "24.209524387303386"
+      }
+    },
+    {
+      "id": "39fc",
+      "cityName": "Markaz al Waḩat ad Dakhilah",
+      "country": "Egypt",
+      "emoji": "EG",
+      "date": "2024-08-01T04:00:00.000Z",
+      "notes": "er",
+      "position": {
+        "lat": "25.463634944761235",
+        "lng": "28.118581145407315"
+      }
     }
   ]
 }

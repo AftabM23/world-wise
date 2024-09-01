@@ -1,5 +1,11 @@
 /* eslint-disable react/prop-types */
-import { createContext, useContext, useEffect, useReducer } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useReducer,
+} from "react";
 const CitiesContext = createContext(null);
 
 const initialState = {
@@ -73,24 +79,26 @@ function CitiesContextProvider({ children }) {
     fetchCities();
   }, []);
 
-  async function getCity(id) {
-    if (Number(id) === currentCity.id) return;
-    dispatch({ type: "loading" });
-    try {
-      const response = await fetch(`http://localhost:9000/cities/${id}`);
-      if (!response.ok) {
-        throw new Error("Response was not OK");
+  const getCity = useCallback(
+    async function getCity(id) {
+      if (Number(id) === currentCity.id) return;
+      dispatch({ type: "loading" });
+      try {
+        const response = await fetch(`http://localhost:9000/cities/${id}`);
+        if (!response.ok) {
+          throw new Error("Response was not OK");
+        }
+        const data = await response.json();
+        dispatch({ type: "city/searched", payload: data });
+
+        console.log(currentCity);
+      } catch (error) {
+        dispatch({ type: "rejected", payload: error });
+        console.log(errorMsg);
       }
-      const data = await response.json();
-      dispatch({ type: "city/searched", payload: data });
-
-      console.log(currentCity);
-    } catch (error) {
-      dispatch({ type: "rejected", payload: error });
-      console.log(errorMsg);
-    }
-  }
-
+    },
+    [currentCity?.id, dispatch]
+  );
   async function addNewCity(newCity) {
     dispatch({ type: "loading" });
     try {
